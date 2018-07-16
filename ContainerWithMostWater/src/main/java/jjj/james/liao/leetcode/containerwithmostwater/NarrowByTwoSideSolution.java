@@ -4,7 +4,7 @@ package jjj.james.liao.leetcode.containerwithmostwater;
  * @author jamesliao
  * @since 2018/7/16
  */
-public class BinarySearchSolution implements MostWaterSolution {
+public class NarrowByTwoSideSolution implements MostWaterSolution {
     @Override
     public int maxArea(int[] height) {
         int maxArea = 0, i = 0, j = height.length - 1;

@@ -22,7 +22,7 @@ public class SolutionTest {
         //@formatter:off
         solutionList = Arrays.asList(
 //                new BruteForceSolution()
-                new BinarySearchSolution()
+                new NarrowByTwoSideSolution()
         );
         //@formatter:on
     }
