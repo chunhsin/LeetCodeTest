@@ -14,11 +14,17 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class SolutionTest {
 
-    List<MostWaterSolution> solutionList;
+    private static final int singleTestTimeout = 600;
+    private List<MostWaterSolution> solutionList;
 
     @Before
     public void init() {
-        solutionList = Arrays.asList(new BruteForceSolution());
+        //@formatter:off
+        solutionList = Arrays.asList(
+//                new BruteForceSolution()
+                new BinarySearchSolution()
+        );
+        //@formatter:on
     }
 
     @Test
@@ -68,6 +74,67 @@ public class SolutionTest {
         solutionList.forEach((solution) -> {
             int maxArea = solution.maxArea(numbers);
             assertThat(maxArea).isEqualTo(4);
+        });
+    }
+
+    @Test
+    public void test_maxArea_WHEN_given2113_THEN_return6() throws Exception {
+        // given
+        int[] numbers = new int[] {2, 1, 1, 3};
+        solutionList.forEach((solution) -> {
+            int maxArea = solution.maxArea(numbers);
+            assertThat(maxArea).isEqualTo(6);
+        });
+    }
+
+    @Test
+    public void test_maxArea_WHEN_given21134_THEN_return8() throws Exception {
+        // given
+        int[] numbers = new int[] {2, 1, 1, 3, 4};
+        solutionList.forEach((solution) -> {
+            int maxArea = solution.maxArea(numbers);
+            assertThat(maxArea).isEqualTo(8);
+        });
+    }
+
+    @Test
+    public void test_maxArea_WHEN_given24134_THEN_return12() throws Exception {
+        // given
+        int[] numbers = new int[] {2, 4, 1, 3, 4};
+        solutionList.forEach((solution) -> {
+            int maxArea = solution.maxArea(numbers);
+            assertThat(maxArea).isEqualTo(12);
+        });
+    }
+
+    @Test
+    public void test_maxArea_WHEN_given324134_THEN_return15() throws Exception {
+        // given
+        int[] numbers = new int[] {3, 2, 4, 1, 3, 4};
+        solutionList.forEach((solution) -> {
+            int maxArea = solution.maxArea(numbers);
+            assertThat(maxArea).isEqualTo(15);
+        });
+    }
+
+    @Test
+    public void test_maxArea_WHEN_given324134100101_THEN_return100() throws Exception {
+        // given
+        int[] numbers = new int[] {3, 2, 4, 1, 3, 4, 100, 101};
+        solutionList.forEach((solution) -> {
+            int maxArea = solution.maxArea(numbers);
+            assertThat(maxArea).isEqualTo(100);
+        });
+    }
+
+    @Test(timeout = singleTestTimeout)
+    public void test_maxArea_WHEN_given15000Numbers_THEN_return() {
+        int[] numbers = new int[15000];
+        for (int i = 0; i < numbers.length; i++)
+            numbers[i] = i;
+        solutionList.forEach((solution) -> {
+            int maxArea = solution.maxArea(numbers);
+            assertThat(maxArea).isEqualTo(56242500);
         });
     }
 
