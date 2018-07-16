@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class SolutionTest {
 
-    private static final int singleTestTimeout = 600;
+    private static final int singleTestTimeout = 100;
     private List<MostWaterSolution> solutionList;
 
     @Before

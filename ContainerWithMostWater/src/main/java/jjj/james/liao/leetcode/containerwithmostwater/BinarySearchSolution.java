@@ -7,17 +7,15 @@ package jjj.james.liao.leetcode.containerwithmostwater;
 public class BinarySearchSolution implements MostWaterSolution {
     @Override
     public int maxArea(int[] height) {
-        int maxArea = 0, i = 0, j = 0;
-        while (i < height.length && j < height.length) {
+        int maxArea = 0, i = 0, j = height.length - 1;
+        while (i != j) {
             int area = getArea(height, i, j);
-            if (area > maxArea) {
+            if (area > maxArea)
                 maxArea = area;
-                j++;
-            }
-            else {
-                i = j;
-                j = i + 1;
-            }
+            if (height[j] >= height[i])
+                i++;
+            else
+                j--;
         }
         return maxArea;
     }
