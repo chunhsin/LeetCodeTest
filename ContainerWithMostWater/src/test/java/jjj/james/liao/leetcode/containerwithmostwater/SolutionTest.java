@@ -14,14 +14,14 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class SolutionTest {
 
-    private static final int singleTestTimeout = 100;
+    private static final int singleTestTimeout = 600;
     private List<MostWaterSolution> solutionList;
 
     @Before
     public void init() {
         //@formatter:off
         solutionList = Arrays.asList(
-//                new BruteForceSolution()
+                new BruteForceSolution(),
                 new NarrowByTwoSideSolution()
         );
         //@formatter:on
